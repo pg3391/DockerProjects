@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gui-website-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gui-website
+  template:
+    metadata:
+      labels:
+        app: gui-website
+    spec:
+      containers:
+      - name: gui-website
+        image: gui-website:latest
+        ports:
+        - containerPort: 5901
